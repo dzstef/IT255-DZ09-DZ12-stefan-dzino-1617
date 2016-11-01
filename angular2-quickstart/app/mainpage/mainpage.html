@@ -1,0 +1,22 @@
+<form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+        Naziv: <input type="text" class="form-control" placeholder="Search" [(ngModel)]="naziv">
+		Broj kreveta: <input type="text" class="form-control" placeholder="Search" [(ngModel)]="krevet">
+		
+    </div>
+</form>
+<div class="col-lg-12">
+<br/>Sobe<br/> 	<br/>
+<div *ngFor="#soba of sobe| search:naziv | pretragaKrevet:krevet">
+	Naziv: {{soba.naziv}}
+	<br/>
+	Krevet: {{soba.krevet}}
+	<br/>
+	TV: <span *ngIf="soba.tv == '1'">
+						Ima
+					</span>
+					<span *ngIf="soba.tv != '1'">
+						Nema
+					</span><br/><br/>
+</div>
+</div>
